@@ -6,13 +6,16 @@ const productSlice = createSlice({
     items: [],
   },
   reducers: {
-    addProduct: (state, action) => {
+    setProducts: (state, action) => {
+      state.items = action.payload;
+    },
+    setAddProduct: (state, action) => {
       state.items.push(action.payload);
     },
   },
 });
 
-export const { addProduct } = productSlice.actions;
+export const { setProducts, setAddProduct } = productSlice.actions;
 
 const rootReducer = {
   product: productSlice.reducer,
