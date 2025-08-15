@@ -21,7 +21,6 @@ export default function BasicModal({ open, handleClose }) {
 
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -30,8 +29,6 @@ export default function BasicModal({ open, handleClose }) {
       >
         <Box sx={style}>
          <BasicForm  handleClose={handleClose}/>
-          {/* <Button>Submit</Button> */}
-          {/* <Button onClick={handleClose}>Close</Button> */}
         </Box>
       </Modal>
     </div>

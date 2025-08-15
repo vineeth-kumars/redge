@@ -1,12 +1,14 @@
-import React from "react";
+import React, { use, useCallback } from "react";
 import FlexBox from "./FlexBox";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../state/index";
+import { setFilteredProducts } from "../state/index"; // Assuming you have this action
 
 const AutoCompleteSearch = () => {
+  
   const [catogories, setCategories] = React.useState([]);
   const dispatch = useDispatch();
   let Categories = new Set();
@@ -29,12 +31,24 @@ const AutoCompleteSearch = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  
+ 
+ const handleCategoryChange = (event, value) => {
+    if(value) {  
+       dispatch(setFilteredProducts(value)); 
+    }else if(value === null) {
+      console.log("No category selected");
+      fetchProducts(); // doing api call to fetch and reset to all products
+    }
+  };
   return (
     <FlexBox borderRadius="9px" gap="3rem" backgroundColor="#f0f0f0">
       <Autocomplete
         disablePortal
         sx={{ width: "100%" }}
         options={catogories}
+        onChange={handleCategoryChange}
         renderInput={(params) => (
           <TextField
             {...params}

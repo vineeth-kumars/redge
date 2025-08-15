@@ -2,7 +2,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { TextField, Button } from "@mui/material";
 import FlexBox from "./FlexBox";
-import AutoCompleteSearch from "./AutoCompleteSearch";
 import { useDispatch } from "react-redux";
 import { setAddProduct } from "../state";
 
@@ -11,9 +10,11 @@ export default function BasicForm({ handleClose }) {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
+    const id = Math.floor(Math.random() * 10000); 
+    data.id = id;
     console.log("Form Data:", data);
     dispatch(setAddProduct(data));
-    handleClose(); // Close the modal after submission
+    handleClose(); 
   };
 
   return (
@@ -51,9 +52,9 @@ export default function BasicForm({ handleClose }) {
         variant="outlined"
         fullWidth
         margin="normal"
-        {...register("image", { required: "Image URL is required" })}
-        error={!!errors.image}
-        helperText={errors.image?.message}
+        {...register("thumbnail", { required: "Image URL is required" })}
+        error={!!errors.thumbnail}
+        helperText={errors.thumbnail?.message}
       />
      <FlexBox>
         <Button
