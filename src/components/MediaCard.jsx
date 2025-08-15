@@ -18,8 +18,8 @@ export default function MediaCard({ product }) {
     <Card
       onClick={handleClick}
       sx={{
-        width: 300,
-        height: 350,
+        width: isNonMobileScreens ? 300 : 100,
+        height: isNonMobileScreens ? 400 : 200,
         cursor: "pointer",
         display: "flex",
         flexDirection: "column",

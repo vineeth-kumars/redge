@@ -26,8 +26,12 @@ const Layout = ({ children }) => {
         <Navbar />
       </Box>
 
-      <Box sx={{ display: "flex", marginTop: `${NAVBAR_HEIGHT}px` }}>
-    
+      <Box sx={{ 
+        display: "flex", 
+        marginTop: `${NAVBAR_HEIGHT}px`,
+        gap: "10px",
+      }}>
+
         <Box
           sx={{
             width: isNonMobileScreens ? "240px" : "60px", // smaller sidebar on mobile
@@ -49,7 +53,7 @@ const Layout = ({ children }) => {
             flexGrow: 1,
             padding: 3,
             maxWidth: "100%", 
-            marginLeft: isNonMobileScreens ? "240px" : "60px", // adjust margin based on sidebar width
+            marginLeft: isNonMobileScreens ? "240px" : "100px", // adjust margin based on sidebar width
             transition: "margin-left 0.3s ease",
           }}
         >
