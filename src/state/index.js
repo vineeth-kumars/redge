@@ -15,10 +15,24 @@ const productSlice = createSlice({
   },
 });
 
+const userSlice = createSlice({
+  name: "user", 
+  initialState: {
+    isAdmin: false,
+  },
+  reducers: {
+    setAdmin: (state, action) => {
+      state.isAdmin = action.payload;
+    },
+  },
+});
+
 export const { setProducts, setAddProduct } = productSlice.actions;
+export const { setAdmin } = userSlice.actions;
 
 const rootReducer = {
   product: productSlice.reducer,
+  user: userSlice.reducer,
 };
 
 const store = configureStore({
