@@ -20,11 +20,11 @@ const productSlice = createSlice({
       state.items.push(action.payload);
     },
     setFilteredProducts: (state, action) => {
-      const filteredProducts = state.items.filter(
+      const filteredProducts = state.originalItems.filter(
         (product) => product.category === action.payload
       );
       state.items = filteredProducts;
-      state.originalItems = filteredProducts; 
+      // state.originalItems = filteredProducts; 
     },
     setSortByName: (state) => {
       state.sortByName = !state.sortByName;
