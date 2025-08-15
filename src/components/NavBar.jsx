@@ -132,8 +132,7 @@ const NavBar = () => {
         <FlexBox gap="2rem">
           <IconButton
             onClick={() => {
-              setIsMobileMenuToggled(prev => !prev);
-              console.log("Mobile menu toggled:", isMobileMenuToggled);
+              setIsMobileMenuToggled((prev) => !prev)
             }}
           >
             <Menu />
@@ -154,9 +153,7 @@ const NavBar = () => {
         >
           {/* CLOSE ICON */}
           <Box display="flex" justifyContent="flex-end" p="1rem">
-            <IconButton
-              onClick={() => setIsMobileMenuToggled(prev => !prev)}
-            >
+            <IconButton onClick={() => setIsMobileMenuToggled((prev) => !prev)}>
               <Close />
             </IconButton>
           </Box>
@@ -170,6 +167,11 @@ const NavBar = () => {
           >
             <NotificationButton sx={{ fontSize: "25px" }} />
             <IconButtonWithBadge sx={{ fontSize: "25px" }} />
+
+            <BasicModal open={open} handleClose={handleClose} />
+            <Button variant="contained" color="primary" onClick={handleOpen}>
+              Add Product
+            </Button>
           </FlexBox>
         </Box>
       )}

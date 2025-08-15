@@ -12,7 +12,6 @@ export default function BasicForm({ handleClose }) {
   const onSubmit = (data) => {
     const id = Math.floor(Math.random() * 10000); 
     data.id = id;
-    console.log("Form Data:", data);
     dispatch(setAddProduct(data));
     handleClose(); 
   };

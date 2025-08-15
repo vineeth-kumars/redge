@@ -53,7 +53,6 @@ const ReviewCard = ({ review }) => {
 const ProductPage = () => {
    const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const { productId } = useParams();
-  console.log("Product ID from URL:", productId);
   const product = useSelector((state) =>
     state.product.items.find((p) => p.id === parseInt(productId))
   );
@@ -61,7 +60,6 @@ const ProductPage = () => {
   if (!product) {
     return <div>Product not found</div>;
   }
-  console.log("Product in ProductPage:", product);
   return (
     <div
       style={{

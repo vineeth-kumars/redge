@@ -5,7 +5,6 @@ import MediaCard from "../components/MediaCard";
 
 const HomePage = () => {
   const products = useSelector((state) => state.product.items) || [];
-  console.log("Products in HomePage:", products);
 
   return (
     <div>

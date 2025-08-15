@@ -16,7 +16,6 @@ const AutoCompleteSearch = () => {
     try {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
-      console.log("Fetched products:", data);
       if (data && data.products) {
         dispatch(setProducts(data.products));
         data.products.forEach((product) => {
@@ -38,7 +37,6 @@ const AutoCompleteSearch = () => {
     if(value) {  
        dispatch(setFilteredProducts(value)); 
     }else if(value === null) {
-      console.log("No category selected");
       fetchProducts(); // doing api call to fetch and reset to all products
     }
   };
